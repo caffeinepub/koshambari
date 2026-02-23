@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-generate-a-new-hero-section-background-image-with-an-elegant-indian-ethnic-fashion-theme-featuring-rich-colors-and-traditional-textile-patterns",
-      "featureTitle": "Generate a new hero section background image with an elegant Indian ethnic fashion theme featuring rich colors and traditional textile patterns",
+      "featureId": "feature-verify-and-document-the-exact-admin-panel-route-url-in-the-frontend-routing-configuration",
+      "featureTitle": "Verify and document the exact admin panel route URL in the frontend routing configuration",
       "files": [
-        "frontend/src/components/HeroSection.tsx"
+        "frontend/README.md",
+        "frontend/src/App.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,10 +22,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-generate-attractive-category-preview-images-for-sarees-western-dresses-lehenga-and-jewellery-sections-on-the-home-page",
-      "featureTitle": "Generate attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery sections on the home page",
+      "featureId": "feature-ensure-the-admin-panel-route-properly-checks-for-authentication-via-internet-identity-before-allowing-access",
+      "featureTitle": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
       "files": [
-        "frontend/src/pages/Home.tsx"
+        "frontend/src/components/AdminRoute.tsx",
+        "frontend/src/pages/AdminLogin.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -40,10 +42,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-generate-fallback-product-images-for-each-category-sarees-western-dresses-lehenga-jewellery-to-replace-the-current-placeholder-images",
-      "featureTitle": "Generate fallback product images for each category (Sarees, Western Dresses, Lehenga, Jewellery) to replace the current placeholder images",
+      "featureId": "feature-verify-that-admin-privilege-verification-is-working-correctly-and-that-the-user-s-identity-is-properly-checked-against-the-admin-role-in-the-backend",
+      "featureTitle": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
       "files": [
-        "frontend/src/components/ProductCard.tsx"
+        "frontend/src/components/AdminRoute.tsx",
+        "frontend/src/pages/AdminLogin.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -55,25 +58,6 @@
       ],
       "testIds": [
         "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-frontend-components-to-render-the-newly-generated-images-as-static-assets-from-frontend-public-assets-generated",
-      "featureTitle": "Update frontend components to render the newly generated images as static assets from frontend/public/assets/generated",
-      "files": [
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
       ],
       "confidence": "high"
     }

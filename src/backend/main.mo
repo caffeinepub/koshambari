@@ -7,8 +7,6 @@ import Principal "mo:core/Principal";
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
 
-
-
 actor {
   // Initialize the user system state
   let accessControlState = AccessControl.initState();

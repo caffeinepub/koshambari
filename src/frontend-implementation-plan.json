@@ -1,75 +1,87 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace all website images with attractive ones",
+  "title": "Fix admin panel access and routing",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Replace hero section background image with an elegant Indian ethnic fashion themed image featuring rich colors and traditional textile patterns",
+      "summary": "Verify and document the exact admin panel route URL in the frontend routing configuration",
       "acceptanceCriteria": [
-        "Hero section displays a visually appealing background image that complements the Indian ethnic fashion theme",
-        "Image maintains appropriate dimensions for hero section display",
-        "Image integrates seamlessly with existing hero section text overlay"
+        "Admin panel route is clearly defined and accessible",
+        "Route path is documented in the application"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/HeroSection.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update the HeroSection component to reference the new hero background image at frontend/public/assets/generated/hero-background.dim_1920x1080.png. Replace the current backgroundImageUrl usage to use the generated static asset path. Ensure the background image renders correctly with the existing text overlay and maintains responsive behavior."
+          "description": "Add clear documentation comments above the admin routes explaining the exact URL paths (/admin, /admin/products, /admin/testimonials, etc.) and how to access them. Ensure all admin routes are properly registered with the router configuration and that the route structure is clearly visible in the code."
+        },
+        {
+          "path": "frontend/README.md",
+          "operation": "create",
+          "description": "Create a README file documenting the admin panel access process, including the route URL (/admin), authentication requirements (Internet Identity login required), and admin privilege requirements. Include instructions for navigating to the admin panel."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Replace category preview images on home page with attractive generated images for Sarees, Western Dresses, Lehenga, and Jewellery sections",
+      "summary": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
       "acceptanceCriteria": [
-        "Each category preview card displays a distinct, high-quality representative image",
-        "Images clearly represent their respective product categories",
-        "All four category images maintain visual consistency in style and quality"
+        "Unauthenticated users are redirected to the login page when attempting to access /admin",
+        "AdminRoute protection wrapper correctly validates user identity"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/components/AdminRoute.tsx",
           "operation": "modify",
-          "description": "Update the category preview cards to use the newly generated category images from frontend/public/assets/generated/. Replace the image paths for each category: Sarees should use category-sarees.dim_400x300.png, Western Dresses should use category-western-dresses.dim_400x300.png, Lehenga should use category-lehenga.dim_400x300.png, and Jewellery should use category-jewellery.dim_400x300.png. Ensure all four category cards render the new images correctly while maintaining existing navigation functionality."
+          "description": "Review and enhance the AdminRoute component to ensure it properly checks authentication state using the useAuth hook before rendering admin content. Verify that unauthenticated users are immediately redirected to the login page (/admin/login) and that the loading state correctly prevents flash of unauthorized content. Ensure the component uses the authorization component's authentication verification pattern."
+        },
+        {
+          "path": "frontend/src/pages/AdminLogin.tsx",
+          "operation": "modify",
+          "description": "Enhance the login page to handle redirect logic after successful authentication. Store the intended destination route before redirecting to login, then navigate back to that route after successful authentication. Add clear error messaging if authentication fails or if Internet Identity is unavailable."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Replace product card fallback images with category-specific generated images for Sarees, Western Dresses, Lehenga, and Jewellery",
+      "summary": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
       "acceptanceCriteria": [
-        "Each category has a dedicated fallback image when product-specific images are unavailable",
-        "Fallback images are visually appealing and accurately represent their product categories",
-        "ProductCard component correctly displays category-specific fallback images"
+        "Backend correctly identifies admin users",
+        "Frontend receives and respects admin status from the backend",
+        "Non-admin authenticated users see appropriate error message"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ProductCard.tsx",
+          "path": "frontend/src/hooks/useAuth.ts",
           "operation": "modify",
-          "description": "Update the ProductCard component to use the newly generated category-specific fallback images from frontend/public/assets/generated/. Map each product category to its corresponding fallback image: sarees to fallback-sarees.dim_300x400.png, westernDresses to fallback-western-dresses.dim_300x400.png, lehenga to fallback-lehenga.dim_300x400.png, and jewellery to fallback-jewellery.dim_300x400.png. Replace the existing fallback image logic to reference these static assets based on the product's category property."
+          "description": "Verify the isAdmin functionality correctly calls the backend isCallerAdmin() method and handles the response properly. Ensure the hook properly exposes admin status to components and that it refreshes when authentication state changes. Add error handling for cases where the backend call fails."
+        },
+        {
+          "path": "frontend/src/components/AdminRoute.tsx",
+          "operation": "modify",
+          "description": "Add comprehensive error handling for non-admin authenticated users. Display a clear error message (e.g., 'Access Denied: Admin privileges required') when an authenticated user without admin privileges attempts to access admin routes. Provide a link to return to the home page."
+        },
+        {
+          "path": "frontend/src/pages/AdminLogin.tsx",
+          "operation": "modify",
+          "description": "After successful authentication, verify admin status by calling the backend isCallerAdmin() method. If the user is not an admin, display a clear error message indicating admin privileges are required and prevent navigation to the admin panel. Show the user their authentication status and provide options to logout or return home."
         }
       ]
     },
     {
       "id": "REQ-4",
-      "summary": "Verify all generated images are correctly integrated and rendering as static assets across the application",
+      "summary": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
       "acceptanceCriteria": [
-        "HeroSection component references the new hero background image",
-        "Home page category preview cards use the new category images",
-        "ProductCard component uses the new category-specific fallback images",
-        "All images load correctly from the static assets directory"
+        "Admin link appears in navigation when user is authenticated as admin",
+        "Link is hidden for non-admin users",
+        "Clicking the link navigates to the admin panel"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/components/Navbar.tsx",
           "operation": "modify",
-          "description": "Verify that the Home page correctly renders all newly integrated images: the hero background via HeroSection component and all four category preview card images. Ensure image paths resolve correctly from frontend/public/assets/generated/ and that images display with proper dimensions and aspect ratios."
-        },
-        {
-          "path": "frontend/src/pages/Products.tsx",
-          "operation": "modify",
-          "description": "Verify that the Products page correctly displays ProductCard components with the new category-specific fallback images when product images are unavailable. Test that all category filters still work correctly and that fallback images render appropriately for each product category."
+          "description": "Add an Admin link to the main navigation bar that is conditionally rendered based on the user's admin status. Use the useAuth hook to check if the user is authenticated and has admin privileges (isAdmin === true). The link should navigate to /admin and be styled consistently with other navigation links. Position the Admin link between Contact and the shopping cart icon. Include appropriate responsive behavior for mobile menu."
         }
       ]
     }

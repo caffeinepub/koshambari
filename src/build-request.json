@@ -1,103 +1,92 @@
 {
   "kind": "build_request",
-  "title": "Replace all website images with attractive ones",
-  "projectName": "Koshambari",
-  "priority": "normal",
+  "title": "Fix admin panel access and routing",
+  "projectName": "Koshambari Store",
+  "priority": "high",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Generate a new hero section background image with an elegant Indian ethnic fashion theme featuring rich colors and traditional textile patterns",
+      "text": "Verify and document the exact admin panel route URL in the frontend routing configuration",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-last"
         ],
         "quotes": [
-          "change all images in this website into attractive ones"
+          "how to access my admin panel"
         ]
       },
       "acceptanceCriteria": [
-        "Hero section displays a visually appealing background image that complements the Indian ethnic fashion theme",
-        "Image maintains appropriate dimensions for hero section display",
-        "Image integrates seamlessly with existing hero section text overlay"
+        "Admin panel route is clearly defined and accessible",
+        "Route path is documented in the application"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Generate attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery sections on the home page",
+      "text": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-last"
         ],
         "quotes": [
-          "change all images in this website into attractive ones"
+          "problem no1"
         ]
       },
       "acceptanceCriteria": [
-        "Each category preview card displays a distinct, high-quality representative image",
-        "Images clearly represent their respective product categories",
-        "All four category images maintain visual consistency in style and quality"
+        "Unauthenticated users are redirected to the login page when attempting to access /admin",
+        "AdminRoute protection wrapper correctly validates user identity"
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Generate fallback product images for each category (Sarees, Western Dresses, Lehenga, Jewellery) to replace the current placeholder images",
-      "target": "frontend",
+      "text": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
+      "target": "both",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-last"
         ],
         "quotes": [
-          "change all images in this website into attractive ones"
+          "problem no1"
         ]
       },
       "acceptanceCriteria": [
-        "Each category has a dedicated fallback image when product-specific images are unavailable",
-        "Fallback images are visually appealing and accurately represent their product categories",
-        "ProductCard component correctly displays category-specific fallback images"
+        "Backend correctly identifies admin users",
+        "Frontend receives and respects admin status from the backend",
+        "Non-admin authenticated users see appropriate error message"
       ]
     },
     {
       "id": "REQ-4",
-      "text": "Update frontend components to render the newly generated images as static assets from frontend/public/assets/generated",
+      "text": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-final"
+          "msg-last"
+        ],
+        "quotes": [
+          "how to access my admin panel"
         ]
       },
       "acceptanceCriteria": [
-        "HeroSection component references the new hero background image",
-        "Home page category preview cards use the new category images",
-        "ProductCard component uses the new category-specific fallback images",
-        "All images load correctly from the static assets directory"
+        "Admin link appears in navigation when user is authenticated as admin",
+        "Link is hidden for non-admin users",
+        "Clicking the link navigates to the admin panel"
       ]
     }
   ],
   "constraints": [
-    "Do not modify backend Motoko code or data structures",
-    "Do not change existing component logic or structure beyond image path updates",
-    "Maintain all existing functionality while updating image assets"
+    "Must use existing Internet Identity authentication system",
+    "Must preserve existing AdminRoute protection wrapper",
+    "Must maintain role-based access control from backend"
   ],
   "nonGoals": [
-    "Changing the overall design or layout of pages",
-    "Adding new product images to the database",
-    "Modifying authentication or cart functionality",
-    "Changing color schemes or typography"
+    "Changing the authentication provider",
+    "Redesigning the admin panel interface",
+    "Adding new admin features beyond access improvements"
   ],
   "imageRequirements": {
-    "required": [
-      "Elegant hero background image with Indian ethnic fashion theme featuring rich traditional textile patterns and warm colors (hero-background.dim_1920x1080.png)",
-      "Elegant saree display with flowing silk fabric in rich colors showcasing traditional Indian craftsmanship (category-sarees.dim_400x300.png)",
-      "Stylish western dress collection featuring modern silhouettes and contemporary designs (category-western-dresses.dim_400x300.png)",
-      "Ornate lehenga with intricate embroidery and embellishments in vibrant festive colors (category-lehenga.dim_400x300.png)",
-      "Exquisite traditional Indian jewellery set with gold accents and precious stones (category-jewellery.dim_400x300.png)",
-      "Beautiful saree with traditional motifs as product fallback image (fallback-sarees.dim_300x400.png)",
-      "Modern western dress as product fallback image with clean elegant styling (fallback-western-dresses.dim_300x400.png)",
-      "Stunning lehenga as product fallback image with decorative details (fallback-lehenga.dim_300x400.png)",
-      "Traditional jewellery pieces as product fallback image with intricate details (fallback-jewellery.dim_300x400.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

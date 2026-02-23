@@ -19,10 +19,12 @@ import AdminSocialMedia from './pages/AdminSocialMedia';
 import AdminHeroSection from './pages/AdminHeroSection';
 import AdminRoute from './components/AdminRoute';
 
+// Root route with Layout wrapper for all pages
 const rootRoute = createRootRoute({
   component: Layout,
 });
 
+// Public routes
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
@@ -65,13 +67,19 @@ const contactRoute = createRoute({
   component: Contact,
 });
 
+// Admin login route (public, but redirects if already authenticated as admin)
+// Access at: /admin/login
 const adminLoginRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin/login',
   component: AdminLogin,
 });
 
-// Admin routes with protection
+// Protected admin routes - require authentication and admin privileges
+// All routes below are wrapped with AdminRoute for access control
+
+// Admin Dashboard - Main admin panel overview
+// Access at: /admin
 const adminDashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin',
@@ -84,6 +92,8 @@ const adminDashboardRoute = createRoute({
   ),
 });
 
+// Admin Products Management - Add, edit, delete products
+// Access at: /admin/products
 const adminProductsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin/products',
@@ -96,6 +106,8 @@ const adminProductsRoute = createRoute({
   ),
 });
 
+// Admin Testimonials Management - Add, edit, delete customer testimonials
+// Access at: /admin/testimonials
 const adminTestimonialsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin/testimonials',
@@ -108,6 +120,8 @@ const adminTestimonialsRoute = createRoute({
   ),
 });
 
+// Admin Contact Info Management - Update contact details
+// Access at: /admin/contact-info
 const adminContactInfoRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin/contact-info',
@@ -120,6 +134,8 @@ const adminContactInfoRoute = createRoute({
   ),
 });
 
+// Admin Social Media Management - Update social media links
+// Access at: /admin/social-media
 const adminSocialMediaRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin/social-media',
@@ -132,6 +148,8 @@ const adminSocialMediaRoute = createRoute({
   ),
 });
 
+// Admin Hero Section Management - Update homepage hero content
+// Access at: /admin/hero-section
 const adminHeroSectionRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/admin/hero-section',

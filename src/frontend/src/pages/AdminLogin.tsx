@@ -3,8 +3,8 @@ import { useNavigate } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, Loader2, AlertCircle } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Shield, Loader2, AlertCircle, CheckCircle2, Info } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function AdminLogin() {
   const { isAuthenticated, isAdmin, isLoading, login, loginStatus } = useAuth();
@@ -19,7 +19,7 @@ export default function AdminLogin() {
     
     // Show error if authenticated but not admin
     if (!isLoading && isAuthenticated && !isAdmin) {
-      setErrorMessage('Access denied. Your account does not have administrator privileges.');
+      setErrorMessage('Access denied. Your account does not have administrator privileges. Please contact an existing administrator to request access.');
     }
   }, [isAuthenticated, isAdmin, isLoading, navigate]);
 
@@ -29,8 +29,16 @@ export default function AdminLogin() {
       await login();
     } catch (error: any) {
       console.error('Login error:', error);
-      setErrorMessage(error.message || 'Login failed. Please try again.');
+      if (error.message === 'User is already authenticated') {
+        setErrorMessage('You are already logged in. Checking admin status...');
+      } else {
+        setErrorMessage(error.message || 'Login failed. Please try again.');
+      }
     }
+  };
+
+  const handleReturnHome = () => {
+    navigate({ to: '/' });
   };
 
   const isLoggingIn = loginStatus === 'logging-in';
@@ -51,30 +59,76 @@ export default function AdminLogin() {
           {errorMessage && (
             <Alert variant="destructive">
               <AlertCircle className="h-4 w-4" />
+              <AlertTitle>Access Denied</AlertTitle>
               <AlertDescription>{errorMessage}</AlertDescription>
             </Alert>
           )}
-          <div className="rounded-lg bg-muted p-4 text-sm text-muted-foreground">
-            <p className="font-medium">Admin Login Required</p>
-            <p className="mt-1">
-              Only authorized administrators can access the admin panel. Please authenticate using your Internet Identity.
-            </p>
+          
+          {!errorMessage && (
+            <Alert>
+              <Info className="h-4 w-4" />
+              <AlertTitle>Admin Login Required</AlertTitle>
+              <AlertDescription>
+                Only authorized administrators can access the admin panel. Please authenticate using your Internet Identity.
+              </AlertDescription>
+            </Alert>
+          )}
+
+          <div className="rounded-lg border bg-muted/50 p-4 text-sm">
+            <p className="font-medium text-foreground">How to Access:</p>
+            <ol className="mt-2 space-y-1 text-muted-foreground">
+              <li className="flex items-start">
+                <span className="mr-2">1.</span>
+                <span>Click the login button below</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">2.</span>
+                <span>Complete Internet Identity authentication</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">3.</span>
+                <span>System will verify your admin privileges</span>
+              </li>
+            </ol>
           </div>
-          <Button
-            onClick={handleLogin}
-            disabled={isLoggingIn || isLoading}
-            className="w-full"
-            size="lg"
-          >
-            {isLoggingIn || isLoading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Authenticating...
-              </>
-            ) : (
-              'Login with Internet Identity'
+
+          {isAuthenticated && isAdmin && (
+            <Alert>
+              <CheckCircle2 className="h-4 w-4" />
+              <AlertDescription>
+                Authentication successful! Redirecting to admin panel...
+              </AlertDescription>
+            </Alert>
+          )}
+
+          <div className="space-y-2">
+            <Button
+              onClick={handleLogin}
+              disabled={isLoggingIn || isLoading || (isAuthenticated && !isAdmin)}
+              className="w-full"
+              size="lg"
+            >
+              {isLoggingIn || isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Authenticating...
+                </>
+              ) : (
+                'Login with Internet Identity'
+              )}
+            </Button>
+
+            {errorMessage && (
+              <Button
+                onClick={handleReturnHome}
+                variant="outline"
+                className="w-full"
+                size="lg"
+              >
+                Return to Home
+              </Button>
             )}
-          </Button>
+          </div>
         </CardContent>
       </Card>
     </div>

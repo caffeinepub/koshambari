@@ -1,79 +1,76 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-23T21:48:24.537Z",
+  "generatedAt": "2026-02-23T22:35:36.967Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 4,
-    "implemented": 4,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Generate a new hero section background image with an elegant Indian ethnic fashion theme featuring rich colors and traditional textile patterns",
+        "summary": "Verify and document the exact admin panel route URL in the frontend routing configuration",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/HeroSection.tsx"
+          "frontend/src/App.tsx",
+          "frontend/README.md"
         ],
         "matchedFiles": [
-          "frontend/src/components/HeroSection.tsx"
+          "frontend/src/App.tsx",
+          "frontend/README.md"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Generate attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery sections on the home page",
+        "summary": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/components/AdminRoute.tsx",
+          "frontend/src/pages/AdminLogin.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/components/AdminRoute.tsx",
+          "frontend/src/pages/AdminLogin.tsx"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Generate fallback product images for each category (Sarees, Western Dresses, Lehenga, Jewellery) to replace the current placeholder images",
+        "summary": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ProductCard.tsx"
+          "frontend/src/hooks/useAuth.ts",
+          "frontend/src/components/AdminRoute.tsx",
+          "frontend/src/pages/AdminLogin.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/ProductCard.tsx"
+          "frontend/src/components/AdminRoute.tsx",
+          "frontend/src/pages/AdminLogin.tsx"
         ]
       },
       {
         "id": "REQ-4",
-        "summary": "Update frontend components to render the newly generated images as static assets from frontend/public/assets/generated",
-        "status": "implemented",
+        "summary": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/pages/Home.tsx",
-          "frontend/src/pages/Products.tsx"
+          "frontend/src/components/Navbar.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
+    "backend/main.mo",
     "build-request.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/category-jewellery.dim_400x300.png",
-    "frontend/public/assets/generated/category-lehenga.dim_400x300.png",
-    "frontend/public/assets/generated/category-sarees.dim_400x300.png",
-    "frontend/public/assets/generated/category-western-dresses.dim_400x300.png",
-    "frontend/public/assets/generated/fallback-jewellery.dim_300x400.png",
-    "frontend/public/assets/generated/fallback-lehenga.dim_300x400.png",
-    "frontend/public/assets/generated/fallback-sarees.dim_300x400.png",
-    "frontend/public/assets/generated/fallback-western-dresses.dim_300x400.png",
-    "frontend/public/assets/generated/hero-background.dim_1920x1080.png",
-    "frontend/src/components/HeroSection.tsx",
-    "frontend/src/components/ProductCard.tsx",
-    "frontend/src/pages/Home.tsx",
+    "frontend/README.md",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AdminRoute.tsx",
+    "frontend/src/pages/AdminLogin.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",
