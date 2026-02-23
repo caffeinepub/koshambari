@@ -1,112 +1,103 @@
 {
   "kind": "build_request",
-  "title": "Add Jewellery category to admin panel",
-  "projectName": "E-commerce Admin",
+  "title": "Replace all website images with attractive ones",
+  "projectName": "Koshambari",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories (All, Sarees, Western Dresses, Lehenga)",
+      "text": "Generate a new hero section background image with an elegant Indian ethnic fashion theme featuring rich colors and traditional textile patterns",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-user-final"
         ],
         "quotes": [
-          "add one more product category into it named Jwellery"
+          "change all images in this website into attractive ones"
         ]
       },
       "acceptanceCriteria": [
-        "Jewellery tab appears in the category filter",
-        "Clicking Jewellery tab filters products to show only jewellery items",
-        "Tab styling matches existing category tabs"
+        "Hero section displays a visually appealing background image that complements the Indian ethnic fashion theme",
+        "Image maintains appropriate dimensions for hero section display",
+        "Image integrates seamlessly with existing hero section text overlay"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
+      "text": "Generate attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery sections on the home page",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-user-final"
         ],
         "quotes": [
-          "add one more product category into it named Jwellery"
+          "change all images in this website into attractive ones"
         ]
       },
       "acceptanceCriteria": [
-        "Jewellery appears as a selectable option in the category dropdown",
-        "Products can be saved with Jewellery category",
-        "Existing products can be edited to change category to Jewellery"
+        "Each category preview card displays a distinct, high-quality representative image",
+        "Images clearly represent their respective product categories",
+        "All four category images maintain visual consistency in style and quality"
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Update the backend ProductCategory enum in main.mo to include #jewellery variant",
-      "target": "backend",
+      "text": "Generate fallback product images for each category (Sarees, Western Dresses, Lehenga, Jewellery) to replace the current placeholder images",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-user-final"
         ],
         "quotes": [
-          "add one more product category into it named Jwellery"
+          "change all images in this website into attractive ones"
         ]
       },
       "acceptanceCriteria": [
-        "ProductCategory type includes #jewellery variant",
-        "Products can be created and stored with jewellery category",
-        "Category filtering works correctly for jewellery products"
+        "Each category has a dedicated fallback image when product-specific images are unavailable",
+        "Fallback images are visually appealing and accurately represent their product categories",
+        "ProductCard component correctly displays category-specific fallback images"
       ]
     },
     {
       "id": "REQ-4",
-      "text": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
+      "text": "Update frontend components to render the newly generated images as static assets from frontend/public/assets/generated",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "add one more product category into it named Jwellery"
+          "msg-user-final"
         ]
       },
       "acceptanceCriteria": [
-        "Jewellery category card displays on home page",
-        "Card links to products page filtered by Jewellery",
-        "Card styling matches existing category cards"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Update ProductCard component to include jewellery in category-based fallback image logic",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "add one more product category into it named Jwellery"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Products with jewellery category display appropriate fallback image when no image URL provided",
-        "Fallback image is visually distinct and appropriate for jewellery"
+        "HeroSection component references the new hero background image",
+        "Home page category preview cards use the new category images",
+        "ProductCard component uses the new category-specific fallback images",
+        "All images load correctly from the static assets directory"
       ]
     }
   ],
   "constraints": [
-    "Use 'Jewellery' spelling (not 'Jewelry') consistently across all components",
-    "Maintain existing admin access control and role-based permissions",
-    "Preserve all existing product categories (Sarees, Western Dresses, Lehenga)"
+    "Do not modify backend Motoko code or data structures",
+    "Do not change existing component logic or structure beyond image path updates",
+    "Maintain all existing functionality while updating image assets"
   ],
   "nonGoals": [
-    "Changing the authentication system or admin login flow",
-    "Modifying the cart, checkout, or payment functionality",
-    "Altering testimonials, contact info, or social media management features",
-    "Creating new admin panel pages beyond what already exists"
+    "Changing the overall design or layout of pages",
+    "Adding new product images to the database",
+    "Modifying authentication or cart functionality",
+    "Changing color schemes or typography"
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Elegant hero background image with Indian ethnic fashion theme featuring rich traditional textile patterns and warm colors (hero-background.dim_1920x1080.png)",
+      "Elegant saree display with flowing silk fabric in rich colors showcasing traditional Indian craftsmanship (category-sarees.dim_400x300.png)",
+      "Stylish western dress collection featuring modern silhouettes and contemporary designs (category-western-dresses.dim_400x300.png)",
+      "Ornate lehenga with intricate embroidery and embellishments in vibrant festive colors (category-lehenga.dim_400x300.png)",
+      "Exquisite traditional Indian jewellery set with gold accents and precious stones (category-jewellery.dim_400x300.png)",
+      "Beautiful saree with traditional motifs as product fallback image (fallback-sarees.dim_300x400.png)",
+      "Modern western dress as product fallback image with clean elegant styling (fallback-western-dresses.dim_300x400.png)",
+      "Stunning lehenga as product fallback image with decorative details (fallback-lehenga.dim_300x400.png)",
+      "Traditional jewellery pieces as product fallback image with intricate details (fallback-jewellery.dim_300x400.png)"
+    ],
     "edits": []
   }
 }

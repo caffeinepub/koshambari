@@ -1,68 +1,75 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Jewellery category to admin panel",
+  "title": "Replace all website images with attractive ones",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories",
+      "summary": "Replace hero section background image with an elegant Indian ethnic fashion themed image featuring rich colors and traditional textile patterns",
       "acceptanceCriteria": [
-        "Jewellery tab appears in the category filter",
-        "Clicking Jewellery tab filters products to show only jewellery items",
-        "Tab styling matches existing category tabs"
+        "Hero section displays a visually appealing background image that complements the Indian ethnic fashion theme",
+        "Image maintains appropriate dimensions for hero section display",
+        "Image integrates seamlessly with existing hero section text overlay"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/CategoryFilter.tsx",
+          "path": "frontend/src/components/HeroSection.tsx",
           "operation": "modify",
-          "description": "Add 'Jewellery' tab to the category filter alongside All, Sarees, Western Dresses, and Lehenga. Update the categories array to include jewellery with appropriate display text. Ensure the tab uses the Category.jewellery enum value from backend.d.ts when filtering."
+          "description": "Update the HeroSection component to reference the new hero background image at frontend/public/assets/generated/hero-background.dim_1920x1080.png. Replace the current backgroundImageUrl usage to use the generated static asset path. Ensure the background image renders correctly with the existing text overlay and maintains responsive behavior."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
+      "summary": "Replace category preview images on home page with attractive generated images for Sarees, Western Dresses, Lehenga, and Jewellery sections",
       "acceptanceCriteria": [
-        "Jewellery appears as a selectable option in the category dropdown",
-        "Products can be saved with Jewellery category",
-        "Existing products can be edited to change category to Jewellery"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/ProductForm.tsx",
-          "operation": "modify",
-          "description": "Add 'Jewellery' option to the category dropdown select element. Update the categories array or options to include jewellery with value Category.jewellery matching the backend enum. Ensure form validation accepts jewellery as a valid category."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
-      "acceptanceCriteria": [
-        "Jewellery category card displays on home page",
-        "Card links to products page filtered by Jewellery",
-        "Card styling matches existing category cards"
+        "Each category preview card displays a distinct, high-quality representative image",
+        "Images clearly represent their respective product categories",
+        "All four category images maintain visual consistency in style and quality"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Add a Jewellery category preview card to the category showcase section. Use the generated jewellery product image at frontend/public/assets/generated/product-jewellery.dim_600x600.png as the card image. Include navigation link to products page with jewellery category filter. Match styling and layout of existing Sarees, Western Wear, and Lehenga cards."
+          "description": "Update the category preview cards to use the newly generated category images from frontend/public/assets/generated/. Replace the image paths for each category: Sarees should use category-sarees.dim_400x300.png, Western Dresses should use category-western-dresses.dim_400x300.png, Lehenga should use category-lehenga.dim_400x300.png, and Jewellery should use category-jewellery.dim_400x300.png. Ensure all four category cards render the new images correctly while maintaining existing navigation functionality."
         }
       ]
     },
     {
-      "id": "REQ-5",
-      "summary": "Update ProductCard component to include jewellery in category-based fallback image logic",
+      "id": "REQ-3",
+      "summary": "Replace product card fallback images with category-specific generated images for Sarees, Western Dresses, Lehenga, and Jewellery",
       "acceptanceCriteria": [
-        "Products with jewellery category display appropriate fallback image when no image URL provided",
-        "Fallback image is visually distinct and appropriate for jewellery"
+        "Each category has a dedicated fallback image when product-specific images are unavailable",
+        "Fallback images are visually appealing and accurately represent their product categories",
+        "ProductCard component correctly displays category-specific fallback images"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ProductCard.tsx",
           "operation": "modify",
-          "description": "Add jewellery case to the category-based fallback image logic. Map Category.jewellery to the generated jewellery product image at frontend/public/assets/generated/product-jewellery.dim_600x600.png. Ensure the fallback displays when product.imageUrl is empty or invalid."
+          "description": "Update the ProductCard component to use the newly generated category-specific fallback images from frontend/public/assets/generated/. Map each product category to its corresponding fallback image: sarees to fallback-sarees.dim_300x400.png, westernDresses to fallback-western-dresses.dim_300x400.png, lehenga to fallback-lehenga.dim_300x400.png, and jewellery to fallback-jewellery.dim_300x400.png. Replace the existing fallback image logic to reference these static assets based on the product's category property."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Verify all generated images are correctly integrated and rendering as static assets across the application",
+      "acceptanceCriteria": [
+        "HeroSection component references the new hero background image",
+        "Home page category preview cards use the new category images",
+        "ProductCard component uses the new category-specific fallback images",
+        "All images load correctly from the static assets directory"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Verify that the Home page correctly renders all newly integrated images: the hero background via HeroSection component and all four category preview card images. Ensure image paths resolve correctly from frontend/public/assets/generated/ and that images display with proper dimensions and aspect ratios."
+        },
+        {
+          "path": "frontend/src/pages/Products.tsx",
+          "operation": "modify",
+          "description": "Verify that the Products page correctly displays ProductCard components with the new category-specific fallback images when product images are unavailable. Test that all category filters still work correctly and that fallback images render appropriately for each product category."
         }
       ]
     }

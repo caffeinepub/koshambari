@@ -73,9 +73,9 @@ export default function Home() {
               className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
               onClick={() => handleCategoryClick(Category.sarees)}
             >
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="/assets/generated/product-saree.dim_600x800.png"
+                  src="/assets/generated/category-sarees.dim_400x300.png"
                   alt="Sarees"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -92,9 +92,9 @@ export default function Home() {
               className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
               onClick={() => handleCategoryClick(Category.westernDresses)}
             >
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="/assets/generated/product-western.dim_600x800.png"
+                  src="/assets/generated/category-western-dresses.dim_400x300.png"
                   alt="Western Dresses"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -111,9 +111,9 @@ export default function Home() {
               className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
               onClick={() => handleCategoryClick(Category.lehenga)}
             >
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="/assets/generated/product-jewellery.dim_600x600.png"
+                  src="/assets/generated/category-lehenga.dim_400x300.png"
                   alt="Lehenga"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
@@ -130,9 +130,9 @@ export default function Home() {
               className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
               onClick={() => handleCategoryClick(Category.jewellery)}
             >
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="/assets/generated/product-jewellery.dim_600x600.png"
+                  src="/assets/generated/category-jewellery.dim_400x300.png"
                   alt="Jewellery"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />

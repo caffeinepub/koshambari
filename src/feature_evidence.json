@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-jewellery-as-a-new-product-category-option-in-the-categoryfilter-component-alongside-existing-categories-all-sarees-western-dresses-lehenga",
-      "featureTitle": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories (All, Sarees, Western Dresses, Lehenga)",
+      "featureId": "feature-generate-a-new-hero-section-background-image-with-an-elegant-indian-ethnic-fashion-theme-featuring-rich-colors-and-traditional-textile-patterns",
+      "featureTitle": "Generate a new hero section background image with an elegant Indian ethnic fashion theme featuring rich colors and traditional textile patterns",
       "files": [
-        "frontend/src/components/CategoryFilter.tsx"
+        "frontend/src/components/HeroSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,10 +21,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-jewellery-as-a-category-option-in-the-productform-component-dropdown-for-adding-and-editing-products",
-      "featureTitle": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
+      "featureId": "feature-generate-attractive-category-preview-images-for-sarees-western-dresses-lehenga-and-jewellery-sections-on-the-home-page",
+      "featureTitle": "Generate attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery sections on the home page",
       "files": [
-        "frontend/src/components/ProductForm.tsx"
+        "frontend/src/pages/Home.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -40,8 +40,27 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-jewellery-category-card-to-the-home-page-category-preview-section-alongside-sarees-western-wear-and-lehenga-cards",
-      "featureTitle": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
+      "featureId": "feature-generate-fallback-product-images-for-each-category-sarees-western-dresses-lehenga-jewellery-to-replace-the-current-placeholder-images",
+      "featureTitle": "Generate fallback product images for each category (Sarees, Western Dresses, Lehenga, Jewellery) to replace the current placeholder images",
+      "files": [
+        "frontend/src/components/ProductCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-frontend-components-to-render-the-newly-generated-images-as-static-assets-from-frontend-public-assets-generated",
+      "featureTitle": "Update frontend components to render the newly generated images as static assets from frontend/public/assets/generated",
       "files": [
         "frontend/src/pages/Home.tsx"
       ],
@@ -55,25 +74,6 @@
       ],
       "testIds": [
         "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-productcard-component-to-include-jewellery-in-category-based-fallback-image-logic",
-      "featureTitle": "Update ProductCard component to include jewellery in category-based fallback image logic",
-      "files": [
-        "frontend/src/components/ProductCard.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
       ],
       "confidence": "high"
     }

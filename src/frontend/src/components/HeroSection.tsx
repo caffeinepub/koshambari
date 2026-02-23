@@ -10,7 +10,7 @@ export default function HeroSection() {
   // Default values if no hero section is set
   const headline = heroSection?.headline || 'Elegance Redefined';
   const description = heroSection?.description || 'Discover the finest collection of traditional sarees, contemporary western wear, and exquisite 18 karat gold jewellery. Where tradition meets modern elegance.';
-  const backgroundImageUrl = heroSection?.backgroundImageUrl || '/assets/generated/hero-sarees.dim_1920x600.png';
+  const backgroundImageUrl = heroSection?.backgroundImageUrl || '/assets/generated/hero-background.dim_1920x1080.png';
 
   if (isLoading) {
     return (

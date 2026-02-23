@@ -1,43 +1,41 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "E-commerce application with product categories (Lehenga, Jewellery) and admin panel",
-  "architectural_notes": [
-    "Admin panel with full access control",
-    "Product categorization system (Lehenga, Jewellery)"
-  ],
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Elegant hero background image with Indian ethnic fashion theme featuring rich traditional textile patterns and warm colors (hero-background.dim_1920x1080.png)\n- Elegant saree display with flowing silk fabric in rich colors showcasing traditional Indian craftsmanship (category-sarees.dim_400x300.png)\n- Stylish western dress collection featuring modern silhouettes and contemporary designs (category-western-dresses.dim_400x300.png)\n- Ornate lehenga with intricate embroidery and embellishments in vibrant festive colors (category-lehenga.dim_400x300.png)\n- Exquisite traditional Indian jewellery set with gold accents and precious stones (category-jewellery.dim_400x300.png)\n- Beautiful saree with traditional motifs as product fallback image (fallback-sarees.dim_300x400.png)\n- Modern western dress as product fallback image with clean elegant styling (fallback-western-dresses.dim_300x400.png)\n- Stunning lehenga as product fallback image with decorative details (fallback-lehenga.dim_300x400.png)\n- Traditional jewellery pieces as product fallback image with intricate details (fallback-jewellery.dim_300x400.png)",
   "existing_features": [
     {
-      "id": "feature-add-jewellery-as-a-new-product-category-option-in-the-categoryfilter-component-alongside-existing-categories-all-sarees-western-dresses-lehenga",
-      "title": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories (All, Sarees, Western Dresses, Lehenga)",
+      "id": "feature-generate-a-new-hero-section-background-image-with-an-elegant-indian-ethnic-fashion-theme-featuring-rich-colors-and-traditional-textile-patterns",
+      "title": "Generate a new hero section background image with an elegant Indian ethnic fashion theme featuring rich colors and traditional textile patterns",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-jewellery-as-a-category-option-in-the-productform-component-dropdown-for-adding-and-editing-products",
-      "title": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
+      "id": "feature-generate-attractive-category-preview-images-for-sarees-western-dresses-lehenga-and-jewellery-sections-on-the-home-page",
+      "title": "Generate attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery sections on the home page",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-jewellery-category-card-to-the-home-page-category-preview-section-alongside-sarees-western-wear-and-lehenga-cards",
-      "title": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
+      "id": "feature-generate-fallback-product-images-for-each-category-sarees-western-dresses-lehenga-jewellery-to-replace-the-current-placeholder-images",
+      "title": "Generate fallback product images for each category (Sarees, Western Dresses, Lehenga, Jewellery) to replace the current placeholder images",
       "reqIds": [
-        "REQ-4"
+        "REQ-3"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-productcard-component-to-include-jewellery-in-category-based-fallback-image-logic",
-      "title": "Update ProductCard component to include jewellery in category-based fallback image logic",
+      "id": "feature-update-frontend-components-to-render-the-newly-generated-images-as-static-assets-from-frontend-public-assets-generated",
+      "title": "Update frontend components to render the newly generated images as static assets from frontend/public/assets/generated",
       "reqIds": [
-        "REQ-5"
+        "REQ-4"
       ],
       "version": 1
     }
@@ -45,26 +43,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add full access admin panel",
+      "summary": "Replace all website images with attractive ones",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Add Jewellery product category",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "Update the backend ProductCategory enum in main.mo to include #jewellery variant",
-      "reqIds": [
-        "REQ-3"
-      ],
       "status": "pending"
     }
   ],
-  "projectName": "E-commerce Admin",
+  "projectName": "Koshambari",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

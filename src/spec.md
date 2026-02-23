@@ -1,13 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Add Jewellery as a new product category throughout the e-commerce admin panel.
+**Goal:** Replace all website images with attractive, high-quality visuals that better represent the Indian ethnic fashion theme.
 
 **Planned changes:**
-- Add 'Jewellery' category option to the CategoryFilter component on the products page
-- Add 'Jewellery' to the category dropdown in the ProductForm component for adding/editing products
-- Update the backend ProductCategory enum to include #jewellery variant
-- Add Jewellery category card to the Home page category preview section
-- Update ProductCard component to include jewellery in category-based fallback image logic
+- Generate new hero section background image with elegant Indian ethnic fashion theme
+- Create attractive category preview images for Sarees, Western Dresses, Lehenga, and Jewellery
+- Generate category-specific fallback product images for when product images are unavailable
+- Update frontend components to reference the new image assets
 
-**User-visible outcome:** Admins can create, edit, and filter products in the new Jewellery category, and customers see Jewellery as a browseable category on the home page.
+**User-visible outcome:** Users will see visually appealing, professional images throughout the website including an enhanced hero section, attractive category previews, and quality fallback images for products.

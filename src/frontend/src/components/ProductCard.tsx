@@ -9,11 +9,11 @@ interface ProductCardProps {
   product: Product;
 }
 
-const categoryImages: Record<string, string> = {
-  sarees: '/assets/generated/product-saree.dim_600x800.png',
-  westernDresses: '/assets/generated/product-western.dim_600x800.png',
-  lehenga: '/assets/generated/product-jewellery.dim_600x600.png',
-  jewellery: '/assets/generated/product-jewellery.dim_600x600.png',
+const categoryFallbackImages: Record<string, string> = {
+  sarees: '/assets/generated/fallback-sarees.dim_300x400.png',
+  westernDresses: '/assets/generated/fallback-western-dresses.dim_300x400.png',
+  lehenga: '/assets/generated/fallback-lehenga.dim_300x400.png',
+  jewellery: '/assets/generated/fallback-jewellery.dim_300x400.png',
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
@@ -30,7 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     }
   };
 
-  const imageUrl = product.imageUrl || categoryImages[product.category] || categoryImages.sarees;
+  const imageUrl = product.imageUrl || categoryFallbackImages[product.category] || categoryFallbackImages.sarees;
 
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            target.src = categoryImages[product.category] || categoryImages.sarees;
+            target.src = categoryFallbackImages[product.category] || categoryFallbackImages.sarees;
           }}
         />
       </div>
