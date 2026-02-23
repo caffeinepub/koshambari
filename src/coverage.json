@@ -1,69 +1,58 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-23T21:31:09.348Z",
+  "generatedAt": "2026-02-23T21:42:30.404Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 6,
-    "implemented": 5,
+    "total": 5,
+    "implemented": 4,
     "items": [
       {
-        "id": "REQ-4",
-        "summary": "Update the backend product category enum to replace 'goldJewellery' with 'lehenga'",
+        "id": "REQ-1",
+        "summary": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories (All, Sarees, Western Dresses, Lehenga)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CategoryFilter.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CategoryFilter.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ProductForm.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ProductForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Update the backend ProductCategory enum in main.mo to include #jewellery variant",
         "status": "unknown",
         "plannedFiles": [],
         "matchedFiles": []
       },
       {
+        "id": "REQ-4",
+        "summary": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ]
+      },
+      {
         "id": "REQ-5",
-        "summary": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/CategoryFilter.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/CategoryFilter.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/ProductForm.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/ProductForm.tsx"
-        ]
-      },
-      {
-        "id": "REQ-7",
-        "summary": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/AdminProducts.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/AdminProducts.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/Home.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+        "summary": "Update ProductCard component to include jewellery in category-based fallback image logic",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/ProductCard.tsx"
@@ -88,7 +77,6 @@
     "frontend/src/components/ProductForm.tsx",
     "frontend/src/declarations/backend.did.d.ts",
     "frontend/src/declarations/backend.did.js",
-    "frontend/src/pages/AdminProducts.tsx",
     "frontend/src/pages/Home.tsx",
     "project_state.json",
     "scratch/component-selection.json",

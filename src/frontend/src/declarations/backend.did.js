@@ -10,6 +10,7 @@ import { IDL } from '@icp-sdk/core/candid';
 
 export const Category = IDL.Variant({
   'lehenga' : IDL.Null,
+  'jewellery' : IDL.Null,
   'sarees' : IDL.Null,
   'westernDresses' : IDL.Null,
 });
@@ -112,6 +113,7 @@ export const idlInitArgs = [];
 export const idlFactory = ({ IDL }) => {
   const Category = IDL.Variant({
     'lehenga' : IDL.Null,
+    'jewellery' : IDL.Null,
     'sarees' : IDL.Null,
     'westernDresses' : IDL.Null,
   });

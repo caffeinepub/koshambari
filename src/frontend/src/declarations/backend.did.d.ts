@@ -12,6 +12,7 @@ import type { Principal } from '@icp-sdk/core/principal';
 
 export interface CartItem { 'quantity' : bigint, 'product' : Product }
 export type Category = { 'lehenga' : null } |
+  { 'jewellery' : null } |
   { 'sarees' : null } |
   { 'westernDresses' : null };
 export interface ContactInfo {

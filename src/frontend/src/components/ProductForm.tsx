@@ -138,6 +138,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
               <SelectItem value={Category.sarees}>Sarees</SelectItem>
               <SelectItem value={Category.westernDresses}>Western Dresses</SelectItem>
               <SelectItem value={Category.lehenga}>Lehenga</SelectItem>
+              <SelectItem value={Category.jewellery}>Jewellery</SelectItem>
             </SelectContent>
           </Select>
         </div>

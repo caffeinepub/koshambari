@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-categoryfilter-component-to-display-lehenga-instead-of-gold-jewellery-as-a-filter-option",
-      "featureTitle": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+      "featureId": "feature-add-jewellery-as-a-new-product-category-option-in-the-categoryfilter-component-alongside-existing-categories-all-sarees-western-dresses-lehenga",
+      "featureTitle": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories (All, Sarees, Western Dresses, Lehenga)",
       "files": [
         "frontend/src/components/CategoryFilter.tsx"
       ],
@@ -16,13 +16,13 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-5"
+        "REQ-1"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-productform-component-to-show-lehenga-as-a-category-option-in-the-dropdown-instead-of-gold-jewellery",
-      "featureTitle": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
+      "featureId": "feature-add-jewellery-as-a-category-option-in-the-productform-component-dropdown-for-adding-and-editing-products",
+      "featureTitle": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
       "files": [
         "frontend/src/components/ProductForm.tsx"
       ],
@@ -35,32 +35,13 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-6"
+        "REQ-2"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-adminproducts-page-to-display-lehenga-label-instead-of-gold-jewellery-in-the-category-column",
-      "featureTitle": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
-      "files": [
-        "frontend/src/pages/AdminProducts.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-home-page-collection-preview-section-to-show-lehenga-instead-of-jewellery",
-      "featureTitle": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
+      "featureId": "feature-add-jewellery-category-card-to-the-home-page-category-preview-section-alongside-sarees-western-wear-and-lehenga-cards",
+      "featureTitle": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
       "files": [
         "frontend/src/pages/Home.tsx"
       ],
@@ -73,13 +54,13 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-8"
+        "REQ-4"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-productcard-fallback-image-logic-to-use-lehenga-specific-fallback-instead-of-gold-jewellery-fallback",
-      "featureTitle": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+      "featureId": "feature-update-productcard-component-to-include-jewellery-in-category-based-fallback-image-logic",
+      "featureTitle": "Update ProductCard component to include jewellery in category-based fallback image logic",
       "files": [
         "frontend/src/components/ProductCard.tsx"
       ],
@@ -92,7 +73,7 @@
         "authorization@4.0.0"
       ],
       "testIds": [
-        "REQ-9"
+        "REQ-5"
       ],
       "confidence": "high"
     }

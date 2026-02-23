@@ -1,6 +1,5 @@
 import Map "mo:core/Map";
 import Array "mo:core/Array";
-import Text "mo:core/Text";
 import Iter "mo:core/Iter";
 import Runtime "mo:core/Runtime";
 import Nat "mo:core/Nat";
@@ -15,10 +14,11 @@ actor {
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
 
-  type Category = {
+  public type Category = {
     #sarees;
     #westernDresses;
     #lehenga;
+    #jewellery;
   };
 
   type Product = {
@@ -139,9 +139,9 @@ actor {
       Runtime.trap("Unauthorized: Only admins can update products");
     };
 
-    let _existingProduct = switch (products.get(id)) {
+    switch (products.get(id)) {
       case (null) { Runtime.trap("Product not found") };
-      case (?p) { p };
+      case (?_) { () };
     };
 
     let updatedProduct : Product = {
@@ -206,9 +206,9 @@ actor {
       Runtime.trap("Unauthorized: Only admins can update testimonials");
     };
 
-    let _existingTestimonial = switch (testimonials.get(id)) {
+    switch (testimonials.get(id)) {
       case (null) { Runtime.trap("Testimonial not found") };
-      case (?t) { t };
+      case (?_) { () };
     };
 
     let updatedTestimonial : Testimonial = {

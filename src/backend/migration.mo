@@ -1,13 +1,14 @@
 import Map "mo:core/Map";
-import Principal "mo:core/Principal";
+import Iter "mo:core/Iter";
 import Nat "mo:core/Nat";
+import Principal "mo:core/Principal";
 
 module {
-  // Old types (with goldJewellery)
+  // Old Types
   type OldCategory = {
     #sarees;
     #westernDresses;
-    #goldJewellery;
+    #lehenga;
   };
 
   type OldProduct = {
@@ -19,31 +20,8 @@ module {
     category : OldCategory;
   };
 
-  // CartItem references Product type, so must be updated
   type OldCartItem = {
     product : OldProduct;
-    quantity : Nat;
-  };
-
-  // New types (with lehenga)
-  type NewCategory = {
-    #sarees;
-    #westernDresses;
-    #lehenga;
-  };
-
-  type NewProduct = {
-    id : Nat;
-    name : Text;
-    description : Text;
-    price : Nat;
-    imageUrl : Text;
-    category : NewCategory;
-  };
-
-  // CartItem references Product type, so must be updated
-  type NewCartItem = {
-    product : NewProduct;
     quantity : Nat;
   };
 
@@ -66,11 +44,6 @@ module {
     backgroundImageUrl : Text;
   };
 
-  type UserProfile = {
-    name : Text;
-    email : Text;
-  };
-
   type Testimonial = {
     id : Nat;
     customerName : Text;
@@ -79,9 +52,12 @@ module {
     date : Text;
   };
 
+  type UserProfile = {
+    name : Text;
+    email : Text;
+  };
+
   type OldActor = {
-    nextProductId : Nat;
-    nextTestimonialId : Nat;
     products : Map.Map<Nat, OldProduct>;
     testimonials : Map.Map<Nat, Testimonial>;
     carts : Map.Map<Principal, [OldCartItem]>;
@@ -89,11 +65,33 @@ module {
     contactInfo : ContactInfo;
     socialMediaLinks : SocialMediaLinks;
     heroSection : HeroSection;
+    nextProductId : Nat;
+    nextTestimonialId : Nat;
+  };
+
+  // New Types
+  type NewCategory = {
+    #sarees;
+    #westernDresses;
+    #lehenga;
+    #jewellery;
+  };
+
+  type NewProduct = {
+    id : Nat;
+    name : Text;
+    description : Text;
+    price : Nat;
+    imageUrl : Text;
+    category : NewCategory;
+  };
+
+  type NewCartItem = {
+    product : NewProduct;
+    quantity : Nat;
   };
 
   type NewActor = {
-    nextProductId : Nat;
-    nextTestimonialId : Nat;
     products : Map.Map<Nat, NewProduct>;
     testimonials : Map.Map<Nat, Testimonial>;
     carts : Map.Map<Principal, [NewCartItem]>;
@@ -101,43 +99,46 @@ module {
     contactInfo : ContactInfo;
     socialMediaLinks : SocialMediaLinks;
     heroSection : HeroSection;
+    nextProductId : Nat;
+    nextTestimonialId : Nat;
+  };
+
+  func mapCategory(oldCategory : OldCategory) : NewCategory {
+    switch (oldCategory) {
+      case (#sarees) { #sarees };
+      case (#westernDresses) { #westernDresses };
+      case (#lehenga) { #lehenga };
+    };
+  };
+
+  func mapProduct(oldProduct : OldProduct) : NewProduct {
+    {
+      oldProduct with
+      category = mapCategory(oldProduct.category);
+    };
+  };
+
+  func mapCartItem(oldCartItem : OldCartItem) : NewCartItem {
+    {
+      oldCartItem with
+      product = mapProduct(oldCartItem.product);
+    };
   };
 
   public func run(old : OldActor) : NewActor {
     let newProducts = old.products.map<Nat, OldProduct, NewProduct>(
       func(_id, oldProduct) {
-        {
-          oldProduct with
-          category =
-            switch (oldProduct.category) {
-              case (#goldJewellery) { #lehenga };
-              case (#westernDresses) { #westernDresses };
-              case (#sarees) { #sarees };
-            };
-        };
+        mapProduct(oldProduct);
       }
     );
 
     let newCarts = old.carts.map<Principal, [OldCartItem], [NewCartItem]>(
-      func(_id, oldCartItems) {
-        oldCartItems.map<OldCartItem, NewCartItem>(
-          func(oldCartItem) {
-            {
-              oldCartItem with
-              product = {
-                oldCartItem.product with
-                category =
-                  switch (oldCartItem.product.category) {
-                    case (#goldJewellery) { #lehenga };
-                    case (#westernDresses) { #westernDresses };
-                    case (#sarees) { #sarees };
-                  };
-              };
-            };
-          }
-        );
+      func(_principal, oldCartItems) {
+        let iter = oldCartItems.values();
+        iter.map(mapCartItem).toArray();
       }
     );
+
     {
       old with
       products = newProducts;

@@ -1,77 +1,68 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Change Gold Jewellery category to Lehenga",
+  "title": "Add Jewellery category to admin panel",
   "requirements": [
     {
-      "id": "REQ-5",
-      "summary": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+      "id": "REQ-1",
+      "summary": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories",
       "acceptanceCriteria": [
-        "The category filter buttons show 'Lehenga' instead of 'Gold Jewellery'",
-        "Clicking the Lehenga filter displays only products in the lehenga category"
+        "Jewellery tab appears in the category filter",
+        "Clicking Jewellery tab filters products to show only jewellery items",
+        "Tab styling matches existing category tabs"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/CategoryFilter.tsx",
           "operation": "modify",
-          "description": "Replace 'Gold Jewellery' button text with 'Lehenga' in the category filter tabs. Update the category value passed to onCategoryChange from 'goldJewellery' to 'lehenga' to match the backend enum value."
+          "description": "Add 'Jewellery' tab to the category filter alongside All, Sarees, Western Dresses, and Lehenga. Update the categories array to include jewellery with appropriate display text. Ensure the tab uses the Category.jewellery enum value from backend.d.ts when filtering."
         }
       ]
     },
     {
-      "id": "REQ-6",
-      "summary": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
+      "id": "REQ-2",
+      "summary": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
       "acceptanceCriteria": [
-        "The product form category select includes 'Lehenga' option instead of 'Gold Jewellery'",
-        "Admin can create and edit products with the lehenga category"
+        "Jewellery appears as a selectable option in the category dropdown",
+        "Products can be saved with Jewellery category",
+        "Existing products can be edited to change category to Jewellery"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ProductForm.tsx",
           "operation": "modify",
-          "description": "Update the category select dropdown options to replace the 'Gold Jewellery' option with 'Lehenga'. Change both the display label and the underlying value from 'goldJewellery' to 'lehenga' to align with the backend Category enum."
+          "description": "Add 'Jewellery' option to the category dropdown select element. Update the categories array or options to include jewellery with value Category.jewellery matching the backend enum. Ensure form validation accepts jewellery as a valid category."
         }
       ]
     },
     {
-      "id": "REQ-7",
-      "summary": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
+      "id": "REQ-4",
+      "summary": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
       "acceptanceCriteria": [
-        "Products with lehenga category display 'Lehenga' badge in the admin products table"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/AdminProducts.tsx",
-          "operation": "modify",
-          "description": "Update the category label mapping to display 'Lehenga' instead of 'Gold Jewellery' for products with the lehenga category. Modify the getCategoryLabel function or similar mapping logic to handle the 'lehenga' enum value."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
-      "acceptanceCriteria": [
-        "The home page collection cards show 'Lehenga' collection instead of 'Jewellery'"
+        "Jewellery category card displays on home page",
+        "Card links to products page filtered by Jewellery",
+        "Card styling matches existing category cards"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Update the collection preview cards section to replace 'Jewellery' text with 'Lehenga'. Change the heading, description, and link reference for the jewellery collection card to reflect the new lehenga category. Update the category filter link to use 'lehenga' instead of 'goldJewellery'."
+          "description": "Add a Jewellery category preview card to the category showcase section. Use the generated jewellery product image at frontend/public/assets/generated/product-jewellery.dim_600x600.png as the card image. Include navigation link to products page with jewellery category filter. Match styling and layout of existing Sarees, Western Wear, and Lehenga cards."
         }
       ]
     },
     {
-      "id": "REQ-9",
-      "summary": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+      "id": "REQ-5",
+      "summary": "Update ProductCard component to include jewellery in category-based fallback image logic",
       "acceptanceCriteria": [
-        "Products in the lehenga category use an appropriate fallback image when no product image is provided"
+        "Products with jewellery category display appropriate fallback image when no image URL provided",
+        "Fallback image is visually distinct and appropriate for jewellery"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ProductCard.tsx",
           "operation": "modify",
-          "description": "Update the fallback image logic to handle the 'lehenga' category. Replace the 'goldJewellery' case with 'lehenga' and update the fallback image path. Since no lehenga-specific generated image exists in assets, use an appropriate existing fallback or the jewellery image as a temporary placeholder until a proper lehenga image is added."
+          "description": "Add jewellery case to the category-based fallback image logic. Map Category.jewellery to the generated jewellery product image at frontend/public/assets/generated/product-jewellery.dim_600x600.png. Ensure the fallback displays when product.imageUrl is empty or invalid."
         }
       ]
     }

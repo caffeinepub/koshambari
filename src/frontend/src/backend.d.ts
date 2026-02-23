@@ -48,6 +48,7 @@ export interface UserProfile {
 }
 export enum Category {
     lehenga = "lehenga",
+    jewellery = "jewellery",
     sarees = "sarees",
     westernDresses = "westernDresses"
 }

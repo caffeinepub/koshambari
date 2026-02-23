@@ -1,116 +1,109 @@
 {
   "kind": "build_request",
-  "title": "Change Gold Jewellery category to Lehenga",
+  "title": "Add Jewellery category to admin panel",
+  "projectName": "E-commerce Admin",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-4",
-      "text": "Update the backend product category enum to replace 'goldJewellery' with 'lehenga'",
+      "id": "REQ-1",
+      "text": "Add 'Jewellery' as a new product category option in the CategoryFilter component alongside existing categories (All, Sarees, Western Dresses, Lehenga)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add one more product category into it named Jwellery"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Jewellery tab appears in the category filter",
+        "Clicking Jewellery tab filters products to show only jewellery items",
+        "Tab styling matches existing category tabs"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add 'Jewellery' as a category option in the ProductForm component dropdown for adding and editing products",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add one more product category into it named Jwellery"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Jewellery appears as a selectable option in the category dropdown",
+        "Products can be saved with Jewellery category",
+        "Existing products can be edited to change category to Jewellery"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the backend ProductCategory enum in main.mo to include #jewellery variant",
       "target": "backend",
       "source": {
         "messageIds": [
           "msg-latest"
         ],
         "quotes": [
-          "change The product categories gold jwellery into Lehenga"
+          "add one more product category into it named Jwellery"
         ]
       },
       "acceptanceCriteria": [
-        "The backend ProductCategory type in main.mo includes 'lehenga' instead of 'goldJewellery'",
-        "Existing products with 'goldJewellery' category are migrated to 'lehenga' category"
+        "ProductCategory type includes #jewellery variant",
+        "Products can be created and stored with jewellery category",
+        "Category filtering works correctly for jewellery products"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add Jewellery category card to the Home page category preview section alongside Sarees, Western Wear, and Lehenga cards",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "add one more product category into it named Jwellery"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Jewellery category card displays on home page",
+        "Card links to products page filtered by Jewellery",
+        "Card styling matches existing category cards"
       ]
     },
     {
       "id": "REQ-5",
-      "text": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+      "text": "Update ProductCard component to include jewellery in category-based fallback image logic",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-latest"
         ],
         "quotes": [
-          "change The product categories gold jwellery into Lehenga"
+          "add one more product category into it named Jwellery"
         ]
       },
       "acceptanceCriteria": [
-        "The category filter buttons show 'Lehenga' instead of 'Gold Jewellery'",
-        "Clicking the Lehenga filter displays only products in the lehenga category"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "change The product categories gold jwellery into Lehenga"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The product form category select includes 'Lehenga' option instead of 'Gold Jewellery'",
-        "Admin can create and edit products with the lehenga category"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "change The product categories gold jwellery into Lehenga"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Products with lehenga category display 'Lehenga' badge in the admin products table"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "change The product categories gold jwellery into Lehenga"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The home page collection cards show 'Lehenga' collection instead of 'Jewellery'"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "change The product categories gold jwellery into Lehenga"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Products in the lehenga category use an appropriate fallback image when no product image is provided"
+        "Products with jewellery category display appropriate fallback image when no image URL provided",
+        "Fallback image is visually distinct and appropriate for jewellery"
       ]
     }
   ],
   "constraints": [
-    "Preserve existing product data during the category migration",
-    "Maintain the single-actor backend architecture"
+    "Use 'Jewellery' spelling (not 'Jewelry') consistently across all components",
+    "Maintain existing admin access control and role-based permissions",
+    "Preserve all existing product categories (Sarees, Western Dresses, Lehenga)"
   ],
   "nonGoals": [
-    "Adding new product categories beyond replacing Gold Jewellery with Lehenga",
-    "Changing the product schema or adding new fields",
-    "Modifying authentication or admin access control"
+    "Changing the authentication system or admin login flow",
+    "Modifying the cart, checkout, or payment functionality",
+    "Altering testimonials, contact info, or social media management features",
+    "Creating new admin panel pages beyond what already exists"
   ],
   "imageRequirements": {
     "required": [],

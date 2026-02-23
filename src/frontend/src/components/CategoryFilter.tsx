@@ -12,13 +12,14 @@ export default function CategoryFilter({ selectedCategory, onCategoryChange }: C
       <Tabs
         value={selectedCategory || 'all'}
         onValueChange={(value) => onCategoryChange(value === 'all' ? null : value as Category)}
-        className="w-full max-w-2xl"
+        className="w-full max-w-3xl"
       >
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="all">All Products</TabsTrigger>
           <TabsTrigger value={Category.sarees}>Sarees</TabsTrigger>
           <TabsTrigger value={Category.westernDresses}>Western Dresses</TabsTrigger>
           <TabsTrigger value={Category.lehenga}>Lehenga</TabsTrigger>
+          <TabsTrigger value={Category.jewellery}>Jewellery</TabsTrigger>
         </TabsList>
       </Tabs>
     </div>

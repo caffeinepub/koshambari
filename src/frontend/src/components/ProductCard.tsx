@@ -13,6 +13,7 @@ const categoryImages: Record<string, string> = {
   sarees: '/assets/generated/product-saree.dim_600x800.png',
   westernDresses: '/assets/generated/product-western.dim_600x800.png',
   lehenga: '/assets/generated/product-jewellery.dim_600x600.png',
+  jewellery: '/assets/generated/product-jewellery.dim_600x600.png',
 };
 
 export default function ProductCard({ product }: ProductCardProps) {

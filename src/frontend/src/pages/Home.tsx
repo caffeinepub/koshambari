@@ -4,9 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from '@tanstack/react-router';
 import { Sparkles, Shield, Truck } from 'lucide-react';
+import { Category } from '@/backend';
 
 export default function Home() {
   const navigate = useNavigate();
+
+  const handleCategoryClick = (category: Category) => {
+    navigate({ to: '/products', search: { category } });
+  };
 
   return (
     <div className="flex flex-col">
@@ -22,7 +27,7 @@ export default function Home() {
               </div>
               <h3 className="font-serif text-xl font-semibold">Premium Quality</h3>
               <p className="text-sm text-muted-foreground">
-                Handpicked collection of finest sarees, dresses, and lehengas
+                Handpicked collection of finest sarees, dresses, lehengas, and jewellery
               </p>
             </CardContent>
           </Card>
@@ -63,8 +68,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            <Card className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <Card 
+              className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+              onClick={() => handleCategoryClick(Category.sarees)}
+            >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src="/assets/generated/product-saree.dim_600x800.png"
@@ -80,7 +88,10 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl">
+            <Card 
+              className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+              onClick={() => handleCategoryClick(Category.westernDresses)}
+            >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src="/assets/generated/product-western.dim_600x800.png"
@@ -96,7 +107,10 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl">
+            <Card 
+              className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+              onClick={() => handleCategoryClick(Category.lehenga)}
+            >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src="/assets/generated/product-jewellery.dim_600x600.png"
@@ -108,6 +122,25 @@ export default function Home() {
                 <h3 className="font-serif text-2xl font-semibold">Lehenga</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   Exquisite traditional lehengas for special occasions
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card 
+              className="group cursor-pointer overflow-hidden transition-all hover:shadow-xl"
+              onClick={() => handleCategoryClick(Category.jewellery)}
+            >
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src="/assets/generated/product-jewellery.dim_600x600.png"
+                  alt="Jewellery"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+              <CardContent className="p-6 text-center">
+                <h3 className="font-serif text-2xl font-semibold">Jewellery</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Stunning jewellery pieces to complement your style
                 </p>
               </CardContent>
             </Card>

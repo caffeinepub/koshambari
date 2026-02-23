@@ -130,6 +130,7 @@ export interface UserProfile {
 }
 export enum Category {
     lehenga = "lehenga",
+    jewellery = "jewellery",
     sarees = "sarees",
     westernDresses = "westernDresses"
 }
@@ -588,11 +589,13 @@ function from_candid_record_n12(_uploadFile: (file: ExternalBlob) => Promise<Uin
 function from_candid_variant_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     lehenga: null;
 } | {
+    jewellery: null;
+} | {
     sarees: null;
 } | {
     westernDresses: null;
 }): Category {
-    return "lehenga" in value ? Category.lehenga : "sarees" in value ? Category.sarees : "westernDresses" in value ? Category.westernDresses : value;
+    return "lehenga" in value ? Category.lehenga : "jewellery" in value ? Category.jewellery : "sarees" in value ? Category.sarees : "westernDresses" in value ? Category.westernDresses : value;
 }
 function from_candid_variant_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     admin: null;
@@ -621,12 +624,16 @@ function to_candid_opt_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Arr
 function to_candid_variant_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Category): {
     lehenga: null;
 } | {
+    jewellery: null;
+} | {
     sarees: null;
 } | {
     westernDresses: null;
 } {
     return value == Category.lehenga ? {
         lehenga: null
+    } : value == Category.jewellery ? {
+        jewellery: null
     } : value == Category.sarees ? {
         sarees: null
     } : value == Category.westernDresses ? {
