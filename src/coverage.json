@@ -1,0 +1,98 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-23T21:31:09.348Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 6,
+    "implemented": 5,
+    "items": [
+      {
+        "id": "REQ-4",
+        "summary": "Update the backend product category enum to replace 'goldJewellery' with 'lehenga'",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CategoryFilter.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CategoryFilter.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ProductForm.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ProductForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminProducts.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminProducts.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Home.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ProductCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ProductCard.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/CategoryFilter.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/components/ProductForm.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/pages/AdminProducts.tsx",
+    "frontend/src/pages/Home.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-categoryfilter-component-to-display-lehenga-instead-of-gold-jewellery-as-a-filter-option",
+      "title": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-productform-component-to-show-lehenga-as-a-category-option-in-the-dropdown-instead-of-gold-jewellery",
+      "title": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-adminproducts-page-to-display-lehenga-label-instead-of-gold-jewellery-in-the-category-column",
+      "title": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-home-page-collection-preview-section-to-show-lehenga-instead-of-jewellery",
+      "title": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-productcard-fallback-image-logic-to-use-lehenga-specific-fallback-instead-of-gold-jewellery-fallback",
+      "title": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Update the backend product category enum to replace 'goldJewellery' with 'lehenga'",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Change Gold Jewellery category to Lehenga",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

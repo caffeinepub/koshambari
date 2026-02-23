@@ -1,0 +1,100 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-categoryfilter-component-to-display-lehenga-instead-of-gold-jewellery-as-a-filter-option",
+      "featureTitle": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+      "files": [
+        "frontend/src/components/CategoryFilter.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-productform-component-to-show-lehenga-as-a-category-option-in-the-dropdown-instead-of-gold-jewellery",
+      "featureTitle": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
+      "files": [
+        "frontend/src/components/ProductForm.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-adminproducts-page-to-display-lehenga-label-instead-of-gold-jewellery-in-the-category-column",
+      "featureTitle": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
+      "files": [
+        "frontend/src/pages/AdminProducts.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-home-page-collection-preview-section-to-show-lehenga-instead-of-jewellery",
+      "featureTitle": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-productcard-fallback-image-logic-to-use-lehenga-specific-fallback-instead-of-gold-jewellery-fallback",
+      "featureTitle": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+      "files": [
+        "frontend/src/components/ProductCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

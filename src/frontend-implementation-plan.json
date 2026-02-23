@@ -1,0 +1,79 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Change Gold Jewellery category to Lehenga",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "summary": "Update CategoryFilter component to display 'Lehenga' instead of 'Gold Jewellery' as a filter option",
+      "acceptanceCriteria": [
+        "The category filter buttons show 'Lehenga' instead of 'Gold Jewellery'",
+        "Clicking the Lehenga filter displays only products in the lehenga category"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CategoryFilter.tsx",
+          "operation": "modify",
+          "description": "Replace 'Gold Jewellery' button text with 'Lehenga' in the category filter tabs. Update the category value passed to onCategoryChange from 'goldJewellery' to 'lehenga' to match the backend enum value."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Update ProductForm component to show 'Lehenga' as a category option in the dropdown instead of 'Gold Jewellery'",
+      "acceptanceCriteria": [
+        "The product form category select includes 'Lehenga' option instead of 'Gold Jewellery'",
+        "Admin can create and edit products with the lehenga category"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductForm.tsx",
+          "operation": "modify",
+          "description": "Update the category select dropdown options to replace the 'Gold Jewellery' option with 'Lehenga'. Change both the display label and the underlying value from 'goldJewellery' to 'lehenga' to align with the backend Category enum."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Update AdminProducts page to display 'Lehenga' label instead of 'Gold Jewellery' in the category column",
+      "acceptanceCriteria": [
+        "Products with lehenga category display 'Lehenga' badge in the admin products table"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminProducts.tsx",
+          "operation": "modify",
+          "description": "Update the category label mapping to display 'Lehenga' instead of 'Gold Jewellery' for products with the lehenga category. Modify the getCategoryLabel function or similar mapping logic to handle the 'lehenga' enum value."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Update Home page collection preview section to show 'Lehenga' instead of 'Jewellery'",
+      "acceptanceCriteria": [
+        "The home page collection cards show 'Lehenga' collection instead of 'Jewellery'"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Update the collection preview cards section to replace 'Jewellery' text with 'Lehenga'. Change the heading, description, and link reference for the jewellery collection card to reflect the new lehenga category. Update the category filter link to use 'lehenga' instead of 'goldJewellery'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Update ProductCard fallback image logic to use lehenga-specific fallback instead of gold jewellery fallback",
+      "acceptanceCriteria": [
+        "Products in the lehenga category use an appropriate fallback image when no product image is provided"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Update the fallback image logic to handle the 'lehenga' category. Replace the 'goldJewellery' case with 'lehenga' and update the fallback image path. Since no lehenga-specific generated image exists in assets, use an appropriate existing fallback or the jewellery image as a temporary placeholder until a proper lehenga image is added."
+        }
+      ]
+    }
+  ]
+}
