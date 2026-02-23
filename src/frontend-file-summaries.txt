@@ -1,5 +1,5 @@
 {
-  "frontend/src/App.tsx": "Main application component with TanStack Router setup and comprehensive inline documentation comments explaining each admin route's purpose and access URL (e.g., /admin, /admin/products, /admin/testimonials, etc.).",
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup including comprehensive inline documentation for all routes, now with added /admin/users route for administrator management.",
   "frontend/src/components/Layout.tsx": "Layout wrapper component that renders the Navbar, main content area with Outlet for route rendering, and Footer for all pages.",
   "frontend/src/components/Navbar.tsx": "Responsive navigation bar with Koshambari logo, navigation links (Home, Products, Contact), shopping cart icon with item count badge, mobile menu toggle, and conditional Admin Panel link visible only to authenticated admin users.",
   "frontend/src/components/Footer.tsx": "Footer component displaying brand information, quick links, contact details (email, phone, address), social media links, and attribution with dynamic year and caffeine.ai link.",
@@ -26,7 +26,7 @@
   "frontend/src/components/AdminRoute.tsx": "Enhanced route guard component that checks authentication and admin role with improved error handling, showing a clear access denied message with return home button for authenticated non-admin users.",
   "frontend/src/pages/AdminLogin.tsx": "Improved admin login page with clearer instructions, step-by-step access guide, better error messaging for non-admin users, and return home button when access is denied.",
   "frontend/src/components/AdminLayout.tsx": "Admin-specific layout wrapper with header showing admin branding and logout button, sidebar navigation, and main content area for all admin pages.",
-  "frontend/src/components/AdminNav.tsx": "Admin navigation component with links to Dashboard, Products, Testimonials, Contact Info, Social Media, and Hero Section, highlighting active section based on current route.",
+  "frontend/src/components/AdminNav.tsx": "Admin navigation component with links to Dashboard, Products, Testimonials, Contact Info, Social Media, Hero Section, and User Management, highlighting active section based on current route.",
   "frontend/src/pages/AdminDashboard.tsx": "Admin dashboard page displaying quick stats (total products, testimonials, categories) and quick action cards for managing products and content.",
   "frontend/src/pages/AdminProducts.tsx": "Admin products management page displaying table of all products with edit and delete actions, showing Lehenga category label in the category column.",
   "frontend/src/components/ProductForm.tsx": "Reusable product form component for adding and editing products with fields for name, description, price, category dropdown (including Sarees, Western Dresses, Lehenga, and Jewellery options), and imageUrl with validation.",
@@ -41,5 +41,7 @@
   "frontend/src/hooks/useSocialMedia.ts": "Custom hook for social media links queries and mutations including useSocialMediaLinks (fetch current) and useUpdateSocialMediaLinks with cache invalidation.",
   "frontend/src/pages/AdminHeroSection.tsx": "Admin hero section management page with form for headline, description, and backgroundImageUrl including image preview functionality.",
   "frontend/src/hooks/useHeroSection.ts": "Custom hook for hero section queries and mutations including useHeroSection (fetch current) and useUpdateHeroSection with cache invalidation.",
-  "frontend/README.md": "Comprehensive documentation for accessing the admin panel, including step-by-step instructions, available admin routes, first-time setup information, and troubleshooting guide."
+  "frontend/README.md": "Comprehensive documentation for accessing the admin panel, including step-by-step instructions, available admin routes, first-time setup information, and troubleshooting guide.",
+  "frontend/src/pages/AdminUserManagement.tsx": "Administrator management page that allows adding new administrators by principal ID and revoking admin privileges, with form validation, confirmation dialogs, and toast notifications.",
+  "frontend/src/hooks/useAdminManagement.ts": "Custom React Query hooks for administrator management operations including useAdminList (manages local admin list with localStorage persistence), useAssignAdmin, and useRevokeAdmin mutations with cache invalidation."
 }

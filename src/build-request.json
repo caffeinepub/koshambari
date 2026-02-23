@@ -1,89 +1,77 @@
 {
   "kind": "build_request",
-  "title": "Fix admin panel access and routing",
-  "projectName": "Koshambari Store",
-  "priority": "high",
+  "title": "Add administrator privileges into this site",
+  "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Verify and document the exact admin panel route URL in the frontend routing configuration",
-      "target": "frontend",
+      "text": "Create a user role management system in the backend that allows assigning and revoking administrator privileges to specific user principals",
+      "target": "backend",
       "source": {
         "messageIds": [
-          "msg-last"
+          "msg-6"
         ],
         "quotes": [
-          "how to access my admin panel"
+          "add administrator privileges into this site"
         ]
       },
       "acceptanceCriteria": [
-        "Admin panel route is clearly defined and accessible",
-        "Route path is documented in the application"
+        "Backend exposes methods to grant admin privileges to a user principal",
+        "Backend exposes methods to revoke admin privileges from a user principal",
+        "Backend exposes a method to list all administrators",
+        "Only existing administrators can manage other administrators' privileges"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
+      "text": "Create an admin user management page in the admin panel that displays all administrators and allows adding or removing admin privileges",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-last"
+          "msg-6"
         ],
         "quotes": [
-          "problem no1"
+          "add administrator privileges into this site"
         ]
       },
       "acceptanceCriteria": [
-        "Unauthenticated users are redirected to the login page when attempting to access /admin",
-        "AdminRoute protection wrapper correctly validates user identity"
+        "Admin panel includes a 'User Management' or 'Administrators' page accessible from the admin navigation",
+        "Page displays a list of all current administrators with their principal IDs",
+        "Page includes a form to add new administrators by entering their principal ID",
+        "Each administrator entry has a remove button to revoke their privileges",
+        "Only authenticated administrators can access this page",
+        "Success and error messages display when granting or revoking privileges"
       ]
     },
     {
       "id": "REQ-3",
-      "text": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-last"
-        ],
-        "quotes": [
-          "problem no1"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Backend correctly identifies admin users",
-        "Frontend receives and respects admin status from the backend",
-        "Non-admin authenticated users see appropriate error message"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
+      "text": "Add a 'User Management' navigation link to the admin sidebar that routes to the administrator management page",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-last"
+          "msg-6"
         ],
         "quotes": [
-          "how to access my admin panel"
+          "add administrator privileges into this site"
         ]
       },
       "acceptanceCriteria": [
-        "Admin link appears in navigation when user is authenticated as admin",
-        "Link is hidden for non-admin users",
-        "Clicking the link navigates to the admin panel"
+        "AdminNav component includes a 'User Management' or 'Administrators' link",
+        "Link routes to the new administrator management page",
+        "Link highlights as active when on the administrator management page"
       ]
     }
   ],
   "constraints": [
-    "Must use existing Internet Identity authentication system",
-    "Must preserve existing AdminRoute protection wrapper",
-    "Must maintain role-based access control from backend"
+    "Maintain the existing single-actor backend architecture",
+    "Preserve existing admin authentication and authorization flow using Internet Identity",
+    "Do not modify read-only frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui"
   ],
   "nonGoals": [
-    "Changing the authentication provider",
-    "Redesigning the admin panel interface",
-    "Adding new admin features beyond access improvements"
+    "Creating different permission levels beyond admin/non-admin",
+    "Implementing user registration or self-service account creation",
+    "Adding email notifications for privilege changes",
+    "Creating audit logs for admin actions"
   ],
   "imageRequirements": {
     "required": [],

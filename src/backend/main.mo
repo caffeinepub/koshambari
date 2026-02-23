@@ -92,6 +92,19 @@ actor {
     backgroundImageUrl = "";
   };
 
+  // User Role Management
+  public shared ({ caller }) func assignAdminRole(user : Principal) : async () {
+    AccessControl.assignRole(accessControlState, caller, user, #admin);
+  };
+
+  public shared ({ caller }) func revokeAdminRole(user : Principal) : async () {
+    AccessControl.assignRole(accessControlState, caller, user, #user);
+  };
+
+  public shared ({ caller }) func assignUserRole(user : Principal) : async () {
+    AccessControl.assignRole(accessControlState, caller, user, #user);
+  };
+
   // User Profile Management
   public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {

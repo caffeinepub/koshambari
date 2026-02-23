@@ -17,6 +17,7 @@ import AdminTestimonials from './pages/AdminTestimonials';
 import AdminContactInfo from './pages/AdminContactInfo';
 import AdminSocialMedia from './pages/AdminSocialMedia';
 import AdminHeroSection from './pages/AdminHeroSection';
+import AdminUserManagement from './pages/AdminUserManagement';
 import AdminRoute from './components/AdminRoute';
 
 // Root route with Layout wrapper for all pages
@@ -162,6 +163,20 @@ const adminHeroSectionRoute = createRoute({
   ),
 });
 
+// Admin User Management - Manage administrator privileges
+// Access at: /admin/users
+const adminUserManagementRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/admin/users',
+  component: () => (
+    <AdminRoute>
+      <AdminLayout>
+        <AdminUserManagement />
+      </AdminLayout>
+    </AdminRoute>
+  ),
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   productsRoute,
@@ -177,6 +192,7 @@ const routeTree = rootRoute.addChildren([
   adminContactInfoRoute,
   adminSocialMediaRoute,
   adminHeroSectionRoute,
+  adminUserManagementRoute,
 ]);
 
 const router = createRouter({ routeTree });

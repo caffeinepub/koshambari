@@ -1,87 +1,50 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix admin panel access and routing",
+  "title": "Add Administrator Privileges Management to Site",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Verify and document the exact admin panel route URL in the frontend routing configuration",
-      "acceptanceCriteria": [
-        "Admin panel route is clearly defined and accessible",
-        "Route path is documented in the application"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add clear documentation comments above the admin routes explaining the exact URL paths (/admin, /admin/products, /admin/testimonials, etc.) and how to access them. Ensure all admin routes are properly registered with the router configuration and that the route structure is clearly visible in the code."
-        },
-        {
-          "path": "frontend/README.md",
-          "operation": "create",
-          "description": "Create a README file documenting the admin panel access process, including the route URL (/admin), authentication requirements (Internet Identity login required), and admin privilege requirements. Include instructions for navigating to the admin panel."
-        }
-      ]
-    },
-    {
       "id": "REQ-2",
-      "summary": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
+      "summary": "Create an admin user management page that displays all administrators and allows adding or removing admin privileges",
       "acceptanceCriteria": [
-        "Unauthenticated users are redirected to the login page when attempting to access /admin",
-        "AdminRoute protection wrapper correctly validates user identity"
+        "Admin panel includes a 'User Management' or 'Administrators' page accessible from the admin navigation",
+        "Page displays a list of all current administrators with their principal IDs",
+        "Page includes a form to add new administrators by entering their principal ID",
+        "Each administrator entry has a remove button to revoke their privileges",
+        "Only authenticated administrators can access this page",
+        "Success and error messages display when granting or revoking privileges"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/AdminRoute.tsx",
-          "operation": "modify",
-          "description": "Review and enhance the AdminRoute component to ensure it properly checks authentication state using the useAuth hook before rendering admin content. Verify that unauthenticated users are immediately redirected to the login page (/admin/login) and that the loading state correctly prevents flash of unauthorized content. Ensure the component uses the authorization component's authentication verification pattern."
+          "path": "frontend/src/pages/AdminUserManagement.tsx",
+          "operation": "create",
+          "description": "Create the administrator management page that fetches and displays all administrators. Include a form to add new administrators by principal ID using the assignAdminRole backend capability. Display each administrator with their principal ID and a remove button that calls revokeAdminRole. Show success/error toast messages for grant/revoke operations. Wrap the page content in AdminLayout and verify the authorization component's usage instructions before implementing."
         },
         {
-          "path": "frontend/src/pages/AdminLogin.tsx",
-          "operation": "modify",
-          "description": "Enhance the login page to handle redirect logic after successful authentication. Store the intended destination route before redirecting to login, then navigate back to that route after successful authentication. Add clear error messaging if authentication fails or if Internet Identity is unavailable."
+          "path": "frontend/src/hooks/useAdminManagement.ts",
+          "operation": "create",
+          "description": "Create custom React Query hooks for administrator management operations. Include useListAdmins query hook that fetches the list of administrators (note: infer from backend interface or implement a workaround if no direct list method exists), useAssignAdmin mutation hook that calls actor.assignAdminRole, and useRevokeAdmin mutation hook that calls actor.revokeAdminRole. Handle query invalidation after mutations to refresh the admin list."
         }
       ]
     },
     {
       "id": "REQ-3",
-      "summary": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
+      "summary": "Add a 'User Management' navigation link to the admin sidebar that routes to the administrator management page",
       "acceptanceCriteria": [
-        "Backend correctly identifies admin users",
-        "Frontend receives and respects admin status from the backend",
-        "Non-admin authenticated users see appropriate error message"
+        "AdminNav component includes a 'User Management' or 'Administrators' link",
+        "Link routes to the new administrator management page",
+        "Link highlights as active when on the administrator management page"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/hooks/useAuth.ts",
+          "path": "frontend/src/components/AdminNav.tsx",
           "operation": "modify",
-          "description": "Verify the isAdmin functionality correctly calls the backend isCallerAdmin() method and handles the response properly. Ensure the hook properly exposes admin status to components and that it refreshes when authentication state changes. Add error handling for cases where the backend call fails."
+          "description": "Add a new navigation link labeled 'User Management' to the admin sidebar navigation. The link should route to '/admin/users' and highlight as active when the current route matches this path. Place the link in a logical position within the existing navigation structure, preferably after the Dashboard link or at the end of the navigation list."
         },
         {
-          "path": "frontend/src/components/AdminRoute.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Add comprehensive error handling for non-admin authenticated users. Display a clear error message (e.g., 'Access Denied: Admin privileges required') when an authenticated user without admin privileges attempts to access admin routes. Provide a link to return to the home page."
-        },
-        {
-          "path": "frontend/src/pages/AdminLogin.tsx",
-          "operation": "modify",
-          "description": "After successful authentication, verify admin status by calling the backend isCallerAdmin() method. If the user is not an admin, display a clear error message indicating admin privileges are required and prevent navigation to the admin panel. Show the user their authentication status and provide options to logout or return home."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
-      "acceptanceCriteria": [
-        "Admin link appears in navigation when user is authenticated as admin",
-        "Link is hidden for non-admin users",
-        "Clicking the link navigates to the admin panel"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Navbar.tsx",
-          "operation": "modify",
-          "description": "Add an Admin link to the main navigation bar that is conditionally rendered based on the user's admin status. Use the useAuth hook to check if the user is authenticated and has admin privileges (isAdmin === true). The link should navigate to /admin and be styled consistently with other navigation links. Position the Admin link between Contact and the shopping cart icon. Include appropriate responsive behavior for mobile menu."
+          "description": "Register a new protected admin route '/admin/users' in the router configuration. The route should render the AdminUserManagement page component and be wrapped with AdminRoute to ensure only authenticated administrators can access it. Place the route definition alongside other admin routes like '/admin/products' and '/admin/testimonials'."
         }
       ]
     }

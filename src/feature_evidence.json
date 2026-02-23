@@ -2,31 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-verify-and-document-the-exact-admin-panel-route-url-in-the-frontend-routing-configuration",
-      "featureTitle": "Verify and document the exact admin panel route URL in the frontend routing configuration",
+      "featureId": "feature-create-an-admin-user-management-page-in-the-admin-panel-that-displays-all-administrators-and-allows-adding-or-removing-admin-privileges",
+      "featureTitle": "Create an admin user management page in the admin panel that displays all administrators and allows adding or removing admin privileges",
       "files": [
-        "frontend/README.md",
-        "frontend/src/App.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0",
-        "authorization@4.0.0"
-      ],
-      "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-the-admin-panel-route-properly-checks-for-authentication-via-internet-identity-before-allowing-access",
-      "featureTitle": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
-      "files": [
-        "frontend/src/components/AdminRoute.tsx",
-        "frontend/src/pages/AdminLogin.tsx"
+        "frontend/src/hooks/useAdminManagement.ts",
+        "frontend/src/pages/AdminUserManagement.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -42,11 +22,11 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-verify-that-admin-privilege-verification-is-working-correctly-and-that-the-user-s-identity-is-properly-checked-against-the-admin-role-in-the-backend",
-      "featureTitle": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
+      "featureId": "feature-add-a-user-management-navigation-link-to-the-admin-sidebar-that-routes-to-the-administrator-management-page",
+      "featureTitle": "Add a 'User Management' navigation link to the admin sidebar that routes to the administrator management page",
       "files": [
-        "frontend/src/components/AdminRoute.tsx",
-        "frontend/src/pages/AdminLogin.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/AdminNav.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

@@ -1,63 +1,47 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-23T22:35:36.967Z",
+  "generatedAt": "2026-02-23T22:49:35.409Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 3,
+    "total": 3,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Verify and document the exact admin panel route URL in the frontend routing configuration",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/README.md"
-        ],
-        "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/README.md"
-        ]
+        "summary": "Create a user role management system in the backend that allows assigning and revoking administrator privileges to specific user principals",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
       },
       {
         "id": "REQ-2",
-        "summary": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
+        "summary": "Create an admin user management page in the admin panel that displays all administrators and allows adding or removing admin privileges",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/AdminRoute.tsx",
-          "frontend/src/pages/AdminLogin.tsx"
+          "frontend/src/pages/AdminUserManagement.tsx",
+          "frontend/src/hooks/useAdminManagement.ts"
         ],
         "matchedFiles": [
-          "frontend/src/components/AdminRoute.tsx",
-          "frontend/src/pages/AdminLogin.tsx"
+          "frontend/src/pages/AdminUserManagement.tsx",
+          "frontend/src/hooks/useAdminManagement.ts"
         ]
       },
       {
         "id": "REQ-3",
-        "summary": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
+        "summary": "Add a 'User Management' navigation link to the admin sidebar that routes to the administrator management page",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/hooks/useAuth.ts",
-          "frontend/src/components/AdminRoute.tsx",
-          "frontend/src/pages/AdminLogin.tsx"
+          "frontend/src/components/AdminNav.tsx",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/AdminRoute.tsx",
-          "frontend/src/pages/AdminLogin.tsx"
+          "frontend/src/components/AdminNav.tsx",
+          "frontend/src/App.tsx"
         ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/components/Navbar.tsx"
-        ],
-        "matchedFiles": []
       }
     ]
   },
@@ -67,10 +51,14 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/README.md",
     "frontend/src/App.tsx",
-    "frontend/src/components/AdminRoute.tsx",
-    "frontend/src/pages/AdminLogin.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AdminNav.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useAdminManagement.ts",
+    "frontend/src/pages/AdminUserManagement.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

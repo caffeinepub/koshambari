@@ -144,7 +144,9 @@ export interface backendInterface {
     addProduct(name: string, description: string, price: bigint, imageUrl: string, category: Category): Promise<void>;
     addTestimonial(customerName: string, rating: bigint, reviewText: string, date: string): Promise<void>;
     addToCart(productId: bigint, quantity: bigint): Promise<void>;
+    assignAdminRole(user: Principal): Promise<void>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    assignUserRole(user: Principal): Promise<void>;
     calculateTotal(): Promise<bigint>;
     deleteProduct(id: bigint): Promise<void>;
     deleteTestimonial(id: bigint): Promise<void>;
@@ -159,6 +161,7 @@ export interface backendInterface {
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
     removeCartItem(productId: bigint): Promise<void>;
+    revokeAdminRole(user: Principal): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     updateCartItem(productId: bigint, quantity: bigint): Promise<void>;
     updateContactInfo(emailAddress: string, phoneNumber: string, physicalAddress: string, businessHours: string): Promise<void>;
@@ -226,6 +229,20 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async assignAdminRole(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.assignAdminRole(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.assignAdminRole(arg0);
+            return result;
+        }
+    }
     async assignCallerUserRole(arg0: Principal, arg1: UserRole): Promise<void> {
         if (this.processError) {
             try {
@@ -237,6 +254,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n3(this._uploadFile, this._downloadFile, arg1));
+            return result;
+        }
+    }
+    async assignUserRole(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.assignUserRole(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.assignUserRole(arg0);
             return result;
         }
     }
@@ -433,6 +464,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.removeCartItem(arg0);
+            return result;
+        }
+    }
+    async revokeAdminRole(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.revokeAdminRole(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.revokeAdminRole(arg0);
             return result;
         }
     }

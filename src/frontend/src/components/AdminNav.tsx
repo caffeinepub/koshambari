@@ -7,6 +7,7 @@ import {
   Mail,
   Share2,
   Image,
+  Users,
 } from 'lucide-react';
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
   { to: '/admin/contact-info', label: 'Contact Info', icon: Mail },
   { to: '/admin/social-media', label: 'Social Media', icon: Share2 },
   { to: '/admin/hero-section', label: 'Hero Section', icon: Image },
+  { to: '/admin/users', label: 'User Management', icon: Users },
 ];
 
 export default function AdminNav() {

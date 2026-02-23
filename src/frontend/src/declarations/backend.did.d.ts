@@ -58,7 +58,9 @@ export interface _SERVICE {
   >,
   'addTestimonial' : ActorMethod<[string, bigint, string, string], undefined>,
   'addToCart' : ActorMethod<[bigint, bigint], undefined>,
+  'assignAdminRole' : ActorMethod<[Principal], undefined>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'assignUserRole' : ActorMethod<[Principal], undefined>,
   'calculateTotal' : ActorMethod<[], bigint>,
   'deleteProduct' : ActorMethod<[bigint], undefined>,
   'deleteTestimonial' : ActorMethod<[bigint], undefined>,
@@ -73,6 +75,7 @@ export interface _SERVICE {
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
   'removeCartItem' : ActorMethod<[bigint], undefined>,
+  'revokeAdminRole' : ActorMethod<[Principal], undefined>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'updateCartItem' : ActorMethod<[bigint, bigint], undefined>,
   'updateContactInfo' : ActorMethod<

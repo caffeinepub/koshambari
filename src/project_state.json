@@ -1,34 +1,22 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Lehenga store application with admin panel access issues being addressed",
-  "architectural_notes": [
-    "Admin panel route needs verification and authentication setup review"
-  ],
-  "known_issues": [
-    "Admin panel access route unclear or authentication not properly configured"
-  ],
-  "isFixRequest": true,
+  "summary": "Web application with administrator privileges system",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-verify-and-document-the-exact-admin-panel-route-url-in-the-frontend-routing-configuration",
-      "title": "Verify and document the exact admin panel route URL in the frontend routing configuration",
-      "reqIds": [
-        "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-ensure-the-admin-panel-route-properly-checks-for-authentication-via-internet-identity-before-allowing-access",
-      "title": "Ensure the admin panel route properly checks for authentication via Internet Identity before allowing access",
+      "id": "feature-create-an-admin-user-management-page-in-the-admin-panel-that-displays-all-administrators-and-allows-adding-or-removing-admin-privileges",
+      "title": "Create an admin user management page in the admin panel that displays all administrators and allows adding or removing admin privileges",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-verify-that-admin-privilege-verification-is-working-correctly-and-that-the-user-s-identity-is-properly-checked-against-the-admin-role-in-the-backend",
-      "title": "Verify that admin privilege verification is working correctly and that the user's identity is properly checked against the admin role in the backend",
+      "id": "feature-add-a-user-management-navigation-link-to-the-admin-sidebar-that-routes-to-the-administrator-management-page",
+      "title": "Add a 'User Management' navigation link to the admin sidebar that routes to the administrator management page",
       "reqIds": [
         "REQ-3"
       ],
@@ -37,15 +25,21 @@
   ],
   "new_feature_requests": [
     {
-      "id": "AR-4",
-      "summary": "Add clear navigation link or button to the admin panel from the main navigation bar for authenticated admin users",
+      "id": "AR-1",
+      "summary": "Add administrator privileges system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a user role management system in the backend that allows assigning and revoking administrator privileges to specific user principals",
       "reqIds": [
-        "REQ-4"
+        "REQ-1"
       ],
       "status": "pending"
     }
   ],
-  "projectName": "Koshambari Store",
+  "projectName": "Add administrator privileges into this site",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

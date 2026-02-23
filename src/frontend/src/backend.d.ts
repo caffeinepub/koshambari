@@ -61,7 +61,9 @@ export interface backendInterface {
     addProduct(name: string, description: string, price: bigint, imageUrl: string, category: Category): Promise<void>;
     addTestimonial(customerName: string, rating: bigint, reviewText: string, date: string): Promise<void>;
     addToCart(productId: bigint, quantity: bigint): Promise<void>;
+    assignAdminRole(user: Principal): Promise<void>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    assignUserRole(user: Principal): Promise<void>;
     calculateTotal(): Promise<bigint>;
     deleteProduct(id: bigint): Promise<void>;
     deleteTestimonial(id: bigint): Promise<void>;
@@ -76,6 +78,7 @@ export interface backendInterface {
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
     removeCartItem(productId: bigint): Promise<void>;
+    revokeAdminRole(user: Principal): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     updateCartItem(productId: bigint, quantity: bigint): Promise<void>;
     updateContactInfo(emailAddress: string, phoneNumber: string, physicalAddress: string, businessHours: string): Promise<void>;
